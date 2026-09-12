@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N-Lalir Digital Services</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;line-height:1.6;color:#172033;background:#f5f7fb}
+    header{background:#111827;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+    header h2{color:#60a5fa}
+    nav a{color:white;text-decoration:none;margin-left:18px}
+    .hero{padding:80px 7%;background:linear-gradient(135deg,#111827,#2563eb);color:white;text-align:center}
+    .hero h1{font-size:clamp(2.2rem,7vw,4rem);margin-bottom:15px}
+    .hero p{max-width:650px;margin:auto;font-size:1.1rem}
+    .btn{display:inline-block;margin-top:25px;padding:13px 22px;background:#22c55e;color:white;text-decoration:none;border-radius:8px;font-weight:bold}
+    section{padding:55px 7%;max-width:1100px;margin:auto}
+    section h2{text-align:center;margin-bottom:30px;font-size:2rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .card{background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px #00000010}
+    .card h3{margin-bottom:8px;color:#2563eb}
+    .price{font-size:1.4rem;font-weight:bold;margin-top:12px}
+    form{max-width:650px;margin:auto;background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px #00000010}
+    label{display:block;margin-top:14px;font-weight:bold}
+    input,select,textarea{width:100%;padding:12px;margin-top:6px;border:1px solid #ccd3df;border-radius:7px;font-size:1rem}
+    button{border:0;cursor:pointer;width:100%;padding:14px;margin-top:20px;border-radius:8px;background:#2563eb;color:white;font-size:1rem;font-weight:bold}
+    .contact{text-align:center;background:#eaf2ff}
+    footer{text-align:center;padding:25px;background:#111827;color:white}
+    @media(max-width:650px){nav{display:none}header{padding:16px 5%}section{padding:45px 5%}}
+  </style>
+</head>
+<body>
+<header>
+  <h2>N-Lalir Digital</h2>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Grow Your Business Online</h1>
+  <p>Affordable websites, flyers and digital services for small businesses, schools, churches and individuals.</p>
+  <a class="btn" href="#order">Order a Service</a>
+</div>
+
+<section id="services">
+  <h2>My Services</h2>
+  <div class="grid">
+    <div class="card"><h3>🌐 Simple Website</h3><p>A clean mobile-friendly website for your business or organization.</p><div class="price">From GH₵300</div></div>
+    <div class="card"><h3>🎨 Flyer Design</h3><p>Professional flyers for events, businesses, churches and announcements.</p><div class="price">From GH₵30</div></div>
+    <div class="card"><h3>📱 Social Media Design</h3><p>Posts and promotional graphics for WhatsApp, Facebook and Instagram.</p><div class="price">From GH₵25</div></div>
+    <div class="card"><h3>⌨️ Typing & Documents</h3><p>Typing, formatting and simple document preparation.</p><div class="price">From GH₵10</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Why Choose Me?</h2>
+  <div class="grid">
+    <div class="card"><h3>Affordable</h3><p>Services designed for students and small businesses.</p></div>
+    <div class="card"><h3>Fast Response</h3><p>Send your request and I will contact you about the details.</p></div>
+    <div class="card"><h3>Mobile Friendly</h3><p>Your website can work on phones, tablets and computers.</p></div>
+  </div>
+</section>
+
+<section id="order">
+  <h2>Request a Service</h2>
+  <form onsubmit="sendWhatsApp(event)">
+    <label>Your Name</label>
+    <input id="name" required placeholder="Enter your name">
+    <label>Service</label>
+    <select id="service">
+      <option>Simple Website</option>
+      <option>Flyer Design</option>
+      <option>Social Media Design</option>
+      <option>Typing & Documents</option>
+    </select>
+    <label>Tell me what you need</label>
+    <textarea id="details" rows="5" required placeholder="Describe your project..."></textarea>
+    <button type="submit">Send Order on WhatsApp</button>
+  </form>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let's Work Together</h2>
+  <p>Ready to improve your business or project? Send me a message.</p>
+  <!-- Replace 233XXXXXXXXX below with your WhatsApp number -->
+  <a class="btn" href="https://wa.me/233XXXXXXXXX">Chat on WhatsApp</a>
+</section>
+
+<footer>
+  <p>© 2026 N-Lalir Digital Services. All rights reserved.</p>
+</footer>
+
+<script>
+function sendWhatsApp(event){
+  event.preventDefault();
+  const name=document.getElementById("name").value;
+  const service=document.getElementById("service").value;
+  const details=document.getElementById("details").value;
+  const phone="233XXXXXXXXX"; // Replace with your WhatsApp number
+  const message=`Hello N-Lalir Digital Services. My name is ${name}. I want to order: ${service}. Details: ${details}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
+}
+</script>
+</body>
+</html>
